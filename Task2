@@ -1,0 +1,13 @@
+import boto3
+
+dynamodb = boto3.resource('dynamodb')
+
+def lambda_handler(event, context):
+    table = dynamodb.Table('test')
+
+    response = table.delete_item(
+        Key={
+              'Resource_id': 'f727ad16-2c6a-4945-a7fb-4a934bb63f3f',
+            'Size': -1
+        }
+    )

@@ -1,0 +1,25 @@
+import boto3
+  db = boto3.resource('dynamodb')
+  def lambda_handler(event, context):
+      table = db.Table('test')
+      
+      response = table.get_item(
+            Key={
+                "Resource_id": "10b9b3d1-38ba-419b-aa4e-26bff67ccedc"
+            }
+          
+          )
+      print(response['item'])          
+
+
+import boto3
+dynamodb = boto3.resource('dynamodb')
+
+table = dynamodb.Table('test')
+
+response = table.get_item(Key={
+  'Resource_id': "0a1f6649-d61e-479e-8f14-f7fc2695042d",
+  'Size': 204817
+})
+print(response['Item'])
+
